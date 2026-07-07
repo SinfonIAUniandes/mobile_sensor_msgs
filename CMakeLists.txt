@@ -15,6 +15,8 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/TouchArray.msg"
   "msg/NFCData.msg"
   "msg/BiometricAuth.msg"
+  "msg/SamsungHealthHeartRate.msg"
+  "msg/SamsungHealthSpO2.msg"
   DEPENDENCIES std_msgs
 )
 

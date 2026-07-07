@@ -45,6 +45,25 @@ bool success         # True if the biometric authentication passed
 uint8 user_id        # (Optional) Map biometric data to specific user profiles
 ```
 
+### 4. Samsung Health metrics (`SamsungHealthHeartRate.msg` & `SamsungHealthSpO2.msg`)
+Used to stream health readings collected through Samsung Health Sensor APIs.
+
+**`SamsungHealthHeartRate.msg`**
+```text
+std_msgs/Header header
+int32 status        # Sensor/status code reported by Samsung Health
+int32 heart_rate    # Heart rate value in beats per minute
+int32 ibi           # Inter-beat interval value
+int32 ibi_quality   # Quality indicator for the IBI reading
+```
+
+**`SamsungHealthSpO2.msg`**
+```text
+std_msgs/Header header
+int32 status        # Sensor/status code reported by Samsung Health
+int32 spo2         # Blood oxygen saturation value
+```
+
 ## 🛠️ Best Practices & Usage
 
 * **Event-Driven Publishing:** Do not publish these messages at a fixed frequency (e.g., 60Hz). To save network bandwidth and battery, publishers should only send `TouchArray` messages on hardware interrupts (e.g., `ACTION_DOWN`, `ACTION_MOVE`, `ACTION_UP`).
